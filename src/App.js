@@ -1,14 +1,12 @@
-import { ToastContainer } from 'react-toastify';
+import { Outlet } from 'react-router-dom';
 import './App.css';
-import ToDoList from './ToDoList';
-import Tabs from './Tabs';
+import Header from './Header';
 
 function App() {
   return (
     <div className="App">
-      <ToDoList/>
-      <Tabs/>
-      <ToastContainer/>
+      <Header/>
+      <Outlet />
     </div>
   );
 }
