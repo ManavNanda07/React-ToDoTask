@@ -25,6 +25,12 @@ export default function Header() {
         >
           Tabs Task
         </Link>
+        <Link
+          className={`nav-item nav-link ${currentUrl === '/contact-us' ? 'active' : ''}`}
+          to="/contact-us"
+        >
+          Contact Us
+        </Link>
       </div>
   </div>
 </nav>

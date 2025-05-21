@@ -8,6 +8,8 @@ import ToDoList from './ToDoList';
 import Tabs from './Tabs';
 import App from './App';
 import { ToastContainer } from 'react-toastify';
+import Page404 from './Page404';
+import ContactUsForm from './ContactUsForm';
 
 const router = createBrowserRouter([
   {
@@ -15,8 +17,13 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       { path: '', element: <ToDoList /> },
-      { path: 'tabs', element: <Tabs /> }
+      { path: 'tabs', element: <Tabs /> },
+      { path:'contact-us', element:<ContactUsForm/>}
     ]
+  },
+  {
+    path:'*',
+    element:<Page404/>
   }
 ]);
 
