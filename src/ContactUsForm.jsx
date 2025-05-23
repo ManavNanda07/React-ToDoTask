@@ -8,26 +8,37 @@ export default function ContactUsForm() {
     lastName: "",
     email: "",
     contactedBefore: false,
+    index:null
   });
   let [contactUsList, setList] = useState([]);
 
   let submitForm = (event) => {
     event.preventDefault();
     if (formValid()) {
-      if (contactUsList.filter((x) => x.email == userForm.email).length > 0) {
+      if (contactUsList.filter((x,i) => x.email == userForm.email && i != userForm.index).length > 0) {
         toast.error("You have already contacted once. please try later..");
         return;
       }
-      toast.success("Form submitted successfully");
-      let updatedList = [...contactUsList, userForm];
-      setList(updatedList);
+
+      if(userForm.index == null){
+          toast.success("Form submitted successfully");
+          let updatedList = [...contactUsList, userForm];
+          setList(updatedList);  
+      }
+      else{
+        toast.success("Form data updated successfully");
+         contactUsList[userForm.index] = userForm;
+         setList(contactUsList); 
+      }
       const initialFormState = {
-        firstName: "",
-        lastName: "",
-        email: "",
-        contactedBefore: false,
-      };
+              firstName: "",
+              lastName: "",
+              email: "",
+              contactedBefore: false,
+              index:null
+            };
       setUserForm(initialFormState);
+     
     } else {
       toast.error("Please fill above form.");
     }
@@ -96,14 +107,14 @@ export default function ContactUsForm() {
                 </label>
                 </div> */}
               <div className="mt-2 text-center">
-                <button className="btn btn-success">Submit</button>
+                <button className="btn btn-success">{userForm.index == null?'Save':'Update'}</button>
               </div>
             </form>
           </div>
         </div>
         {contactUsList.length > 0 ? (
           <div className={contactUsList.length > 0 ? "col-6" : ""}>
-            <InquiryList   contactUsList={contactUsList} setList={setList} />
+            <InquiryList   contactUsList={contactUsList} setList={setList} setUserForm={setUserForm} />
           </div>
         ) : (
           ""
