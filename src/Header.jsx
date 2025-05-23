@@ -31,6 +31,12 @@ export default function Header() {
         >
           Contact Us
         </Link>
+        <Link
+          className={`nav-item nav-link ${currentUrl === '/password-generator' ? 'active' : ''}`}
+          to="/password-generator"
+        >
+          Password Generator
+        </Link>
       </div>
   </div>
 </nav>

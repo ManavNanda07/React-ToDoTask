@@ -10,6 +10,7 @@ import App from './App';
 import { ToastContainer } from 'react-toastify';
 import Page404 from './Page404';
 import ContactUsForm from './ContactUsForm';
+import PasswordGenerator from './PasswordGenerator';
 
 const router = createBrowserRouter([
   {
@@ -18,7 +19,8 @@ const router = createBrowserRouter([
     children: [
       { path: '', element: <ToDoList /> },
       { path: 'tabs', element: <Tabs /> },
-      { path:'contact-us', element:<ContactUsForm/>}
+      { path:'contact-us', element:<ContactUsForm/>},
+      { path:'password-generator', element:<PasswordGenerator/>}
     ]
   },
   {
