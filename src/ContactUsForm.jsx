@@ -16,7 +16,7 @@ export default function ContactUsForm() {
     event.preventDefault();
     if (formValid()) {
       if (contactUsList.filter((x,i) => x.email == userForm.email && i != userForm.index).length > 0) {
-        toast.error("You have already contacted once. please try later..");
+        toast.error("You have already contacted once. please try later.");
         return;
       }
 
