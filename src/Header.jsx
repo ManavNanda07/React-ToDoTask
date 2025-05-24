@@ -37,6 +37,12 @@ export default function Header() {
         >
           Password Generator
         </Link>
+        <Link
+          className={`nav-item nav-link ${currentUrl === '/weather' ? 'active' : ''}`}
+          to="/weather"
+        >
+          Weather
+        </Link>
       </div>
   </div>
 </nav>
