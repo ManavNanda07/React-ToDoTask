@@ -40,6 +40,11 @@ export default function PasswordGenerator() {
         }));
     }
 
+    let copyPassword =()=>{
+        navigator.clipboard.writeText(generatedPassword);
+        toast.success("Password copied successfully");
+    }
+
  
     return (
         <div className="container d-flex align-items-center justify-content-center min-vh-100">
@@ -121,8 +126,8 @@ export default function PasswordGenerator() {
                     </button>
                 </form>
 
-                <div className="mt-3">
-                    Generated Password : {generatedPassword}
+                <div className={generatedPassword==undefined?'d-none':'mt-3'}>
+                    Generated Password : {generatedPassword} <span className="ms-1 btn btn-success" onClick={copyPassword}>Copy</span>
                 </div>
             </div>
         </div>
